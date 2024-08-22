@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "title": "To Kill a Mockingbird",
+    "authorName": "by Harper Lee",
+    "price": 449,
+    "category": "Premium",
+    "image": "./ToKillAMockingBird.webp"
+  },
+  {
+    "id": 2,
+    "title": "1984",
+    "authorName": "by George Orwell",
+    "price": 399,
+    "category": "Premium",
+    "image": "./1984.webp"
+  },
+  {
+    "id": 3,
+    "title": "The Great Gatsby",
+    "authorName": "by F. Scott Fitzgerald",
+    "price": 299,
+    "category": "Premium",
+    "image": "./TheGreatGatsby.webp"
+  },
+  {
+    "id": 4,
+    "title": "The Hobbit",
+    "authorName": "by J.R.R. Tolkien",
+    "price": 399,
+    "category": "Premium",
+    "image": "./TheHobbit.webp"
+  },
+  {
+    "id": 5,
+    "title": "The Alchemist",
+    "authorName": "by Paulo Coelho",
+    "price": 399,
+    "category": "Premium",
+    "image": "./TheAlchemist.webp"
+  },
+  {
+    "id": 6,
+    "title": "Crime and Punishment",
+    "authorName": "by Fyodor Dostoevsky",
+    "price": 499,
+    "category": "Premium",
+    "image": "./CrimeAndPunishment.webp"
+  },
+  {
+    "id": 7,
+    "title": "Frankenstein",
+    "authorName": "by Mary Shelley",
+    "price": 399,
+    "category": "Premium",
+    "image": "./Frankenstein.webp"
+  },
+  {
+    "id": 8,
+    "title": "Animal Farm",
+    "authorName": "By George Orwell",
+    "price": 0,
+    "category": "Free",
+    "image": "./AnimalFarm.webp"
+  },
+  {
+    "id": 9,
+    "title": "Harry Potter (The Chamber Of Secrets)",
+    "authorName": "By J.k. Rowling",
+    "price": 0,
+    "category": "Free",
+    "image": "./HarryPotter.webp"
+  },
+  {
+    "id": 10,
+    "title": "10 Minutes 38 Seconds In This Strange World",
+    "authorName": "By Elif Shafak",
+    "price": 0,
+    "category": "Free",
+    "image": "./InThisStrangeWorld.webp"
+  },
+  {
+    "id": 11,
+    "title": "Harry Potter (The Goblet Of Fire)",
+    "authorName": "By J.k. Rowling",
+    "price": 0,
+    "category": "Free",
+    "image": "./HarryPotterTheGoblet.webp"
+  },
+  {
+    "id": 12,
+    "title": "Harry Potter (The Order Of The Phoenix)",
+    "authorName": "By J.k. Rowling",
+    "price": 0,
+    "category": "Free",
+    "image": "./HarryPotterTheOrder.webp"
+  },
+  {
+    "id": 13,
+    "title": "Harry Potter (The Philosophers Stone)",
+    "authorName": "By J.k. Rowling",
+    "price": 0,
+    "category": "Free",
+    "image": "./HarryPotterThePhilosopher’s.webp"
+  }
+]
