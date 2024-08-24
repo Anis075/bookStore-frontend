@@ -1,8 +1,13 @@
 "use client";
 import { useEffect, useState } from "react";
 import Login from "./Login";
+import Logout from "./Logout";
+import { useAuth } from "../Context/AuthProvider";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
+  const [authUser, setAuthUser] = useAuth();
+  console.log(authUser);
   const [sticky, setSticky] = useState(false);
   const [theme, setTheme] = useState("light");
   useEffect(() => {
@@ -32,17 +37,21 @@ export default function Navbar() {
   }, []);
   const navItems = (
     <>
+    <li>
+
+      <NavLink  to="/">
+        <div >Home</div>
+      </NavLink>
+    </li>
       <li>
-        <a href="/">Home</a>
+      <NavLink to="/books">
+        <div >Books</div>
+      </NavLink>
       </li>
       <li>
-        <a href="/books">Books</a>
-      </li>
-      <li>
-        <a href="/contact">Contact</a>
-      </li>
-      <li>
-        <a>About</a>
+      <NavLink to="/contact">
+        <div >Contact</div>
+      </NavLink>
       </li>
     </>
   );
@@ -142,17 +151,21 @@ export default function Navbar() {
                 </svg>
               </label>
             </div>
-            <div>
-              <a
-                onClick={() =>
-                  document.getElementById("my_modal_3").showModal()
-                }
-                className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
-              >
-                Login
-              </a>
-              <Login />
-            </div>
+            {authUser ? (
+              <Logout setAuthUser={setAuthUser} />
+            ) : (
+              <div>
+                <a
+                  onClick={() =>
+                    document.getElementById("my_modal_3").showModal()
+                  }
+                  className="bg-black text-white px-3 py-2 rounded-md hover:bg-slate-800 duration-300 cursor-pointer"
+                >
+                  Login
+                </a>
+                <Login setAuthUser={setAuthUser} />
+              </div>
+            )}
           </div>
         </div>
       </div>

@@ -1,13 +1,49 @@
-import { Link } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useNavigate } from 'react-router-dom';
 
-export default function Login() {
+export default function Login({setAuthUser}) {
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+
+    try {
+      const res = await axios.post(
+        "http://localhost:3001/user/login",
+        userInfo
+      );
+      console.log(res.data);
+      if (res.data) {
+        setAuthUser(res.data)
+        // alert("Login Successfully");
+        toast.success("Login Successfully");
+        navigate("/");
+      } else {
+        // alert("Login failed. Please try again.");
+        toast.error("Login failed. Please try again.");
+      }
+    } catch (err) {
+      if (err.response && err.response.data && err.response.data.message) {
+        console.log(err.response.data.message);
+        // alert("Error: " + err.response.data.message);
+        toast.error("Error: " + err.response.data.message);
+      } else {
+        console.log(err.message);
+        // alert("An unexpected error occurred: " + err.message);
+        toast.error("An unexpected error occurred: " + err.message);
+      }
+    }
+  };
 
   return (
     <>
@@ -69,7 +105,7 @@ export default function Login() {
                   </button>
                   <div className="flex gap-1">
                     <p className="pointer-events-none">Not Registered? </p>
-                    <Link
+                    <NavLink
                       to={"/signup"}
                       className="underline text-blue-500 cursor-pointer"
                       onClick={() =>
@@ -77,7 +113,7 @@ export default function Login() {
                       }
                     >
                       Signup
-                    </Link>
+                    </NavLink>
                   </div>
                 </div>
               </div>

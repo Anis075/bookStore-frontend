@@ -1,6 +1,8 @@
 "use client";
+import { useEffect, useState } from "react";
 import Card from "../Components/Card";
-import Data from "../../../data.json";
+import axios from "axios";
+// import Data from "../../../data.json";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -8,8 +10,21 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 export default function FreeBooks() {
-  const freeBook = Data.filter((d) => d.category === "Free");
-  console.log(freeBook);
+  const [book, setBook] = useState([]);
+  useEffect(() => {
+    const getBook = async () => {
+      try {
+        const res = await axios.get("http://localhost:3001/book");
+        // console.log(res.data);
+        setBook(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getBook();
+  }, []);
+  const freeBook = book.filter((d) => d.category === "Free");
+  // console.log(freeBook);
 
   return (
     <>
